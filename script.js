@@ -34,17 +34,6 @@ function selectButton(buttons, selected) {
     button.setAttribute('aria-pressed', String(isSelected));
   });
 }
-const filters = [...document.querySelectorAll('.filter-btn')];
-filters.forEach(button => button.addEventListener('click', () => {
-  selectButton(filters, button);
-  let count = 0;
-  document.querySelectorAll('.project-card').forEach(card => {
-    const visible = button.dataset.filter === 'all' || card.dataset.category === button.dataset.filter;
-    card.hidden = !visible;
-    if (visible) count++;
-  });
-  document.querySelector('#filter-status').textContent = `${count} projet${count > 1 ? 's' : ''} affiché${count > 1 ? 's' : ''}`;
-}));
 const skills = {
   web: { title: 'Développement web', desc: "Création d'interfaces et apprentissage des technologies du web.", tags: ['HTML', 'CSS', 'JavaScript', 'Tailwind CSS'] },
   discord: { title: 'Univers Discord', desc: 'Conception de communautés, de bots et de systèmes interactifs.', tags: ['Bots', 'Communautés', 'Automatisations', 'Expérience membre'] },
