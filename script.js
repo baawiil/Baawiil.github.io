@@ -79,3 +79,96 @@ document.querySelector('#copy-site')?.addEventListener('click', async () => {
     output.textContent = 'Lien copié !';
   } catch { output.textContent = 'Copie manuelle : https://baawiil.github.io/'; }
 });
+
+/* Terminal animé Baawiil */
+
+const terminal = document.querySelector(
+  '#accueil .font-mono.text-sm.leading-8'
+);
+
+if (terminal) {
+  const messages = [
+    `// Profil de Baawiil
+
+const baawiil = {
+  passion: 'gaming & tech',
+  projets: 'en évolution',
+  curiosité: 'illimitée'
+};`,
+
+    `// Mes projets
+
+PULSE / ÉKO       [CONCEPTION]
+OrbitGG           [CONCEPTION]
+DISASTER SERVICE  [CONCEPT]
+
+> De nouvelles idées arrivent...`,
+
+    `// Vérification du système
+
+✓ GitHub connecté
+✓ Tailwind CSS chargé
+✓ Portfolio opérationnel
+
+console.log('Hello world!');`,
+
+    `// Bienvenue dans mon univers
+
+> Création en cours...
+> Exploration de nouvelles idées...
+> Gaming, tech et développement
+
+STATUS: ONLINE`
+  ];
+
+  terminal.replaceChildren();
+
+  const output = document.createElement('pre');
+  output.style.cssText =
+    'white-space:pre-wrap;overflow-wrap:anywhere;' +
+    'font:inherit;line-height:inherit;min-height:260px;';
+
+  const cursor = document.createElement('span');
+  cursor.textContent = '▌';
+  cursor.className = 'text-cyan-400 animate-pulse';
+  cursor.setAttribute('aria-hidden', 'true');
+
+  terminal.append(output, cursor);
+  terminal.setAttribute('aria-label', 'Terminal de présentation Baawiil');
+  output.setAttribute('aria-hidden', 'true');
+
+  const sleep = ms =>
+    new Promise(resolve => setTimeout(resolve, ms));
+
+  async function animateTerminal() {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      output.textContent = messages[0];
+      cursor.remove();
+      return;
+    }
+
+    while (true) {
+      for (const message of messages) {
+        // Écriture progressive
+        for (let i = 1; i <= message.length; i++) {
+          output.textContent = message.slice(0, i);
+          await sleep(message[i - 1] === '\n' ? 180 : 35);
+        }
+
+        // Conserver le message
+        await sleep(4000);
+
+        // Effacement progressif
+        for (let i = message.length; i >= 0; i--) {
+          output.textContent = message.slice(0, i);
+          await sleep(12);
+        }
+
+        await sleep(600);
+      }
+    }
+  }
+
+  animateTerminal();
+}
+
