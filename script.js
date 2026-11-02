@@ -37,6 +37,7 @@ function selectButton(buttons, selected) {
 const skills = {
   web: { title: 'Développement web', desc: "Création d'interfaces et apprentissage des technologies du web.", tags: ['HTML', 'CSS', 'JavaScript', 'Tailwind CSS'] },
   discord: { title: 'Univers Discord', desc: 'Conception de communautés, de bots et de systèmes interactifs.', tags: ['Bots', 'Communautés', 'Automatisations', 'Expérience membre'] },
+  video: { title: 'Montage vidéo & colorimétrie', desc: 'Montage de séquences, correction colorimétrique et création de contenus audiovisuels. Une pratique que je développe à travers mes réalisations.', tags: ['Montage vidéo', 'Color Grading', 'Étalonnage', 'Avant / Après', 'Formats verticaux'] },
   tools: { title: 'Outils & environnements', desc: 'Outils utilisés ou explorés pour mes projets personnels.', tags: ['GitHub', 'Git', 'Linux / Debian', 'VS Code'] }
 };
 const tabs = [...document.querySelectorAll('.skill-tab')];
