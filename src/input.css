@@ -51,3 +51,14 @@ header nav a[href^="#"]:not(:first-child):hover { text-decoration: underline; te
   #competences .skill-tab, #competences #skills-content, #formations article,
   #creations article, #apropos aside { transition: none !important; transform: none !important; }
 }
+
+/* Cartes de compétences : logos et statut de pratique. */
+.skills-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:12px; }
+.skill-card { display:flex; flex-direction:column; justify-content:space-between; min-height:100px; gap:12px; padding:15px; border:1px solid rgba(148,163,184,.16); border-radius:14px; background:rgba(8,12,24,.35); transition:border-color .2s ease,transform .2s ease; }
+.skill-card-head { display:flex; align-items:center; gap:10px; }
+.skill-emblem { display:flex; width:36px; height:36px; flex:none; align-items:center; justify-content:center; border-radius:10px; background:rgba(139,92,246,.14); color:#a5b4fc; font-size:20px; }
+.skill-emblem img { width:26px; height:26px; object-fit:contain; }
+.skill-name { font-weight:650; font-size:14px; color:#f1f5f9; overflow-wrap:anywhere; }
+.skill-level { font-size:12px; color:#94a3b8; padding-left:1px; }
+@media (hover:hover) and (pointer:fine) { .skill-card:hover { transform:translateY(-2px); border-color:rgba(103,232,249,.38); } }
+@media (prefers-reduced-motion:reduce) { .skill-card { transition:none; } }
