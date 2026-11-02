@@ -1,20 +1,28 @@
-# Baawiil — Portfolio Gaming & Tech
+# Baawiil — Portfolio Gaming & Tech (Tailwind CSS v4)
 
-Portfolio statique en français, prêt à publier sur GitHub Pages.
+Portfolio HTML + JavaScript, mis en forme en **Tailwind CSS v4**.
 
-## Tester en local
-Ouvrez `index.html` dans le navigateur.
+## Déploiement GitHub Pages (automatique)
 
-## Publier
-1. Créer un dépôt public `Baawiil.github.io` sous le compte GitHub `Baawiil`.
-2. Envoyer `index.html`, `style.css`, `script.js` à la **racine** du dépôt (pas dans un sous-dossier).
-3. Dans Settings → Pages, choisir Deploy from a branch, `main`, `/(root)` puis Save.
-4. Le site sera disponible à `https://baawiil.github.io/` une fois le déploiement terminé.
+1. Importer tous les fichiers du ZIP **à la racine du dépôt** `baawiil/Baawiil.github.io`, en gardant le dossier caché `.github/workflows/pages.yml`.
+2. Remplacer `index.html` et `script.js` existants. On peut supprimer l'ancien `style.css` du dépôt : le nouveau est généré pendant le déploiement.
+3. GitHub → Settings → Pages → Build and deployment → Source : **GitHub Actions** (et non Deploy from a branch).
+4. GitHub → Actions → « Déployer le portfolio Tailwind » → vérifier le succès du déploiement.
+5. Le site sera sur https://baawiil.github.io/.
 
-## À personnaliser ensuite
-- Ajouter des captures d'écran réelles de projets et leurs liens.
-- Détailler les technologies réellement maîtrisées.
-- Ajouter des moyens de contact publics avec accord.
-- Ajouter éventuellement CV, photos et SEO avancé.
+### Développement local (optionnel)
 
-**Note :** PULSE/ÉKO, OrbitGG et DISASTER SERVICE sont présentés comme concepts, et non comme projets déjà publiés.
+Installer Node.js, puis :
+
+```bash
+npm install
+npm run dev
+```
+
+Le fichier `style.css` sera généré localement. Ne pas utiliser le CDN Play Tailwind pour la production.
+
+### Personnalisation
+
+Modifier le texte, les sections et les classes Tailwind dans `index.html`. Le fichier source Tailwind est `src/input.css`. Les interactions sont dans `script.js`.
+
+Les projets sont indiqués comme « En conception », sans prétendre qu'ils sont déjà publiés.
