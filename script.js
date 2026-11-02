@@ -48,7 +48,8 @@ const skills = {
     title: 'Univers Discord',
     desc: 'Conception de communautés, de bots et de systèmes interactifs.',
     groups: [
-      { label: 'Compétences', items: ['Bots Discord', 'Communautés', 'Automatisations', 'Expérience membre'] }
+      { label: 'Compétences', items: ['Bots Discord', 'Communautés', 'Automatisations', 'Expérience membre'] },
+      { label: 'Frameworks & bibliothèques', items: ['discord.js', 'discord.py'] }
     ]
   },
   video: {
