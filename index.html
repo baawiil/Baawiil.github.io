@@ -4,11 +4,18 @@
   <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Portfolio de Baawiil : gaming, tech, projets Discord, web et jeux vidéo.">
   <meta name="theme-color" content="#080c18">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://baawiil.github.io/">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:url" content="https://baawiil.github.io/">
+  <meta name="twitter:card" content="summary">
   <meta property="og:title" content="Baawiil · Gaming, Tech & Création">
   <meta property="og:description" content="Mes projets gaming, web et Discord, et les idées que je construis.">
   <title>Baawiil · Gaming, Tech & Création</title>
-  <link rel="stylesheet" href="./style.css">
-  <script src="./script.js" defer></script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Baawiil","url":"https://baawiil.github.io/","sameAs":["https://github.com/baawiil"],"description":"Création numérique, gaming, projets web et Discord."}</script>
+  <link rel="stylesheet" href="./style.css?v=4">
+  <script src="./script.js?v=4" defer></script>
 </head>
 <body class="bg-[#080c18] text-slate-100 antialiased selection:bg-violet-500/40">
   <div class="pointer-events-none fixed inset-0 z-[-1] opacity-30 [background-image:linear-gradient(rgba(45,72,110,.14)_1px,transparent_1px),linear-gradient(90deg,rgba(45,72,110,.14)_1px,transparent_1px)] [background-size:48px_48px]" aria-hidden="true"></div>
@@ -17,16 +24,17 @@
   <header class="sticky top-0 z-40 border-b border-white/10 bg-[#080c18]/85 backdrop-blur-xl">
     <nav class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-5 py-4 sm:px-8" aria-label="Navigation principale">
       <a href="#accueil" aria-label="Baawiil, retour à l’accueil" class="font-mono text-xl font-black tracking-tight text-white">&lt;baawiil<span class="text-cyan-400">.</span>/&gt;</a>
-      <div class="hidden gap-7 text-sm text-slate-300 md:flex"><a class="transition hover:text-cyan-300" href="#apropos">À propos</a><a class="transition hover:text-cyan-300" href="#competences">Compétences</a><a class="transition hover:text-cyan-300" href="#projets">Projets</a><a class="transition hover:text-cyan-300" href="#contact">Contact</a></div>
+      <div class="hidden gap-7 text-sm text-slate-300 md:flex"><a class="transition hover:text-cyan-300" href="#apropos">À propos</a><a class="transition hover:text-cyan-300" href="#competences">Compétences</a><a class="transition hover:text-cyan-300" href="#formations">Formations</a><a class="transition hover:text-cyan-300" href="#projets">Projets</a><a class="transition hover:text-cyan-300" href="#contact">Contact</a></div>
       <button id="menu-toggle" class="rounded-lg border border-white/15 px-3 py-2 text-sm text-white md:hidden" type="button" aria-controls="mobile-menu" aria-expanded="false">Menu ☰</button>
       <a class="hidden rounded-xl border border-cyan-400/40 bg-cyan-400/10 px-4 py-2 text-sm font-bold text-cyan-300 transition hover:bg-cyan-400/20 sm:inline-block" href="https://github.com/baawiil" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
     </nav>
-    <div id="mobile-menu" class="hidden border-t border-white/10 px-5 pb-4 pt-3 text-sm md:hidden"><div class="flex flex-col gap-4"><a href="#apropos">À propos</a><a href="#competences">Compétences</a><a href="#projets">Projets</a><a href="#contact">Contact</a></div></div>
+    <div id="mobile-menu" class="hidden border-t border-white/10 px-5 pb-4 pt-3 text-sm md:hidden"><div class="flex flex-col gap-4"><a href="#apropos">À propos</a><a href="#competences">Compétences</a><a href="#formations">Formations</a><a href="#projets">Projets</a><a href="#contact">Contact</a></div></div>
   </header>
   <main id="main">
-    <section id="accueil" class="mx-auto flex min-h-[78vh] max-w-6xl items-center px-5 py-20 sm:px-8 lg:py-28">
-      <div class="reveal"><p class="mb-6 inline-flex items-center gap-2 rounded-full border border-cyan-400/20 bg-cyan-400/5 px-4 py-2 font-mono text-xs tracking-[.15em] text-cyan-300"><span class="h-2 w-2 rounded-full bg-cyan-400 shadow-[0_0_14px_#22d3ee]"></span> GAMING / TECH / CRÉATION</p>
-        <h1 class="text-5xl font-black leading-[1.1] tracking-tight sm:text-6xl lg:text-7xl">Salut, moi c'est <span class="bg-gradient-to-r from-cyan-300 via-blue-400 to-violet-400 bg-clip-text text-transparent">Baawiil.</span><br>Je donne vie à mes <span class="text-violet-400">idées.</span></h1>
+    <section id="accueil" class="hero-stage relative mx-auto flex min-h-[78vh] max-w-6xl items-center overflow-hidden px-5 py-20 sm:px-8 lg:py-28">
+      <div class="hero-glow" aria-hidden="true"></div>
+      <div class="reveal relative z-10"><p class="mb-6 inline-flex items-center gap-2 rounded-full border border-cyan-400/20 bg-cyan-400/5 px-4 py-2 font-mono text-xs tracking-[.15em] text-cyan-300"><span class="h-2 w-2 rounded-full bg-cyan-400 shadow-[0_0_14px_#22d3ee]"></span> GAMING / TECH / CRÉATION</p>
+        <h1 class="hero-title text-5xl font-black leading-[1.1] tracking-tight sm:text-6xl lg:text-7xl">Salut, moi c'est <span class="bg-gradient-to-r from-cyan-300 via-blue-400 to-violet-400 bg-clip-text text-transparent">Baawiil.</span><br>Je donne vie à mes <span class="text-violet-400">idées.</span></h1>
         <p class="mt-7 max-w-xl text-lg leading-relaxed text-slate-400">Passionné de gaming, de tech et de création numérique. Je partage mes projets Discord, mes expériences web et mes nouvelles idées.</p>
         <div class="mt-9 flex flex-wrap gap-3"><a href="#projets" class="rounded-xl bg-gradient-to-r from-cyan-500 to-violet-600 px-6 py-3 font-bold text-white shadow-[0_10px_40px_rgba(82,79,230,.3)] transition hover:-translate-y-1">Découvrir mes projets ↗</a><a href="#contact" class="rounded-xl border border-white/20 px-6 py-3 font-semibold text-slate-200 transition hover:border-cyan-400/50 hover:text-cyan-300">Me contacter</a></div>
         <p class="mt-9 font-mono text-xs text-slate-500">Gaming • Développement • Discord • Création</p>
@@ -64,8 +72,27 @@
       </div>
       <div id="skills-content" class="mt-5 min-h-52 rounded-2xl border border-white/10 bg-[#111a30] p-7 sm:p-9" aria-live="polite"><h3 class="text-xl font-black text-white">Développement web</h3><p class="mt-3 leading-7 text-slate-400">Création d'interfaces et apprentissage des technologies du web.</p><div class="mt-5 flex flex-wrap gap-2"><span class="rounded-lg border border-cyan-400/20 bg-cyan-400/10 px-3 py-2 text-sm text-cyan-200">HTML</span><span class="rounded-lg border border-cyan-400/20 bg-cyan-400/10 px-3 py-2 text-sm text-cyan-200">CSS</span><span class="rounded-lg border border-cyan-400/20 bg-cyan-400/10 px-3 py-2 text-sm text-cyan-200">JavaScript</span><span class="rounded-lg border border-cyan-400/20 bg-cyan-400/10 px-3 py-2 text-sm text-cyan-200">Tailwind CSS</span></div></div>
     </section>
+    <section id="formations" class="mx-auto max-w-6xl px-5 py-20 sm:px-8 scroll-mt-24 reveal">
+      <p class="mb-3 font-mono text-xs tracking-widest text-cyan-400">03 / PARCOURS CRÉATIF</p>
+      <h2 class="text-3xl font-black sm:text-4xl">Certifications & formations</h2>
+      <p class="mt-3 text-slate-400">Des compétences créatives que j'ai développées et que je continue de perfectionner.</p>
+      <div class="mt-8 grid gap-5 md:grid-cols-2">
+        <article class="rounded-2xl border border-emerald-400/30 bg-[#111a30] p-7 sm:p-9">
+          <span class="inline-flex rounded-full border border-emerald-400/30 bg-emerald-400/10 px-3 py-1 text-xs font-bold text-emerald-300">Certification obtenue</span>
+          <h3 class="mt-5 text-2xl font-black text-white">Monteur vidéo LPA</h3>
+          <p class="mt-3 leading-7 text-slate-400">Certification en montage vidéo, intégrée à mon parcours de création de contenus.</p>
+          <div class="mt-5 flex flex-wrap gap-2"><span class="rounded-lg bg-white/5 px-3 py-2 text-sm text-slate-300">Montage vidéo</span><span class="rounded-lg bg-white/5 px-3 py-2 text-sm text-slate-300">Création audiovisuelle</span></div>
+        </article>
+        <article class="rounded-2xl border border-amber-400/30 bg-[#111a30] p-7 sm:p-9">
+          <span class="inline-flex rounded-full border border-amber-400/30 bg-amber-400/10 px-3 py-1 text-xs font-bold text-amber-300">Certification en cours</span>
+          <h3 class="mt-5 text-2xl font-black text-white">Formation Retouche Photo (Photoshop)</h3>
+          <p class="mt-3 leading-7 text-slate-400">Formation actuellement suivie pour approfondir la retouche photo avec Adobe Photoshop.</p>
+          <div class="mt-5 flex flex-wrap gap-2"><span class="rounded-lg bg-white/5 px-3 py-2 text-sm text-slate-300">Photoshop</span><span class="rounded-lg bg-white/5 px-3 py-2 text-sm text-slate-300">Retouche photo</span></div>
+        </article>
+      </div>
+    </section>
     <section id="projets" class="mx-auto max-w-6xl px-5 py-20 sm:px-8 scroll-mt-24 reveal">
-      <p class="mb-3 font-mono text-xs tracking-widest text-cyan-400">03 / QUÊTES ACTIVES</p>
+      <p class="mb-3 font-mono text-xs tracking-widest text-cyan-400">04 / QUÊTES ACTIVES</p>
       <h2 class="text-3xl font-black sm:text-4xl">Mes projets</h2>
       <p class="mt-3 text-slate-400">Des projets à différents stades : filtre-les par univers.</p>
       <div class="mt-7 flex flex-wrap gap-2" role="group" aria-label="Filtrer les projets">
@@ -83,11 +110,11 @@
       <p id="filter-status" class="mt-5 text-sm text-slate-500" role="status" aria-live="polite">4 projets affichés</p>
     </section>
     <section id="contact" class="mx-auto max-w-6xl px-5 py-20 sm:px-8 scroll-mt-24 reveal">
-      <div class="relative overflow-hidden rounded-3xl border border-cyan-400/20 bg-gradient-to-br from-[#14213d] via-[#151a35] to-[#241438] p-8 text-center sm:p-16"><div class="pointer-events-none absolute -right-20 -top-20 h-72 w-72 rounded-full bg-violet-500/15 blur-3xl" aria-hidden="true"></div><p class="relative font-mono text-xs tracking-widest text-cyan-300">04 / CONNECT</p><h2 class="relative mt-4 text-3xl font-black sm:text-4xl">On échange ?</h2><p class="relative mx-auto mt-5 max-w-xl leading-7 text-slate-300">Une idée, un projet commun ou simplement envie de parler gaming et tech ? Retrouve mes projets publics sur GitHub.</p>
-        <div class="relative mt-8 flex flex-wrap justify-center gap-3"><a href="https://github.com/baawiil" target="_blank" rel="noopener noreferrer" class="rounded-xl bg-gradient-to-r from-cyan-500 to-violet-600 px-7 py-3 font-bold text-white transition hover:-translate-y-1">Mon GitHub ↗</a><button id="copy-site" type="button" class="rounded-xl border border-white/20 px-7 py-3 font-semibold text-slate-100 transition hover:border-cyan-300 hover:text-cyan-200">Copier le lien du site</button></div><p id="copy-status" class="relative mt-4 min-h-6 text-sm text-cyan-300" role="status" aria-live="polite"></p><p class="relative mt-2 text-xs text-slate-400">D'autres moyens de contact pourront être ajoutés quand tu souhaiteras les rendre publics.</p>
+      <div class="relative overflow-hidden rounded-3xl border border-cyan-400/20 bg-gradient-to-br from-[#14213d] via-[#151a35] to-[#241438] p-8 text-center sm:p-16"><div class="pointer-events-none absolute -right-20 -top-20 h-72 w-72 rounded-full bg-violet-500/15 blur-3xl" aria-hidden="true"></div><p class="relative font-mono text-xs tracking-widest text-cyan-300">05 / CONNECT</p><h2 class="relative mt-4 text-3xl font-black sm:text-4xl">On échange ?</h2><p class="relative mx-auto mt-5 max-w-xl leading-7 text-slate-300">Une idée, un projet commun ou simplement envie de parler gaming et tech ? Retrouve mes projets publics sur GitHub.</p>
+        <div class="relative mt-8 flex flex-wrap justify-center gap-3"><a href="https://github.com/baawiil" target="_blank" rel="noopener noreferrer" class="rounded-xl bg-gradient-to-r from-cyan-500 to-violet-600 px-7 py-3 font-bold text-white transition hover:-translate-y-1">Mon GitHub ↗</a><button id="copy-site" type="button" class="rounded-xl border border-white/20 px-7 py-3 font-semibold text-slate-100 transition hover:border-cyan-300 hover:text-cyan-200">Copier le lien du site</button></div><p id="copy-status" class="relative mt-4 min-h-6 text-sm text-cyan-300" role="status" aria-live="polite"></p><p class="relative mt-2 text-xs text-slate-400">Pour Discord et les autres réseaux, les liens seront ajoutés dès que tu choisiras ceux à rendre publics.</p>
       </div>
     </section>
   </main>
-  <footer class="mx-auto flex max-w-6xl flex-col justify-between gap-3 border-t border-white/10 px-5 py-8 text-sm text-slate-500 sm:flex-row sm:px-8"><span>© <span id="year">2026</span> Baawiil</span><span>V3 · Tailwind CSS · GitHub Pages</span></footer>
+  <footer class="mx-auto flex max-w-6xl flex-col justify-between gap-3 border-t border-white/10 px-5 py-8 text-sm text-slate-500 sm:flex-row sm:px-8"><span>© <span id="year">2026</span> Baawiil</span><span>V4 · Tailwind CSS · GitHub Pages</span></footer>
 </body>
 </html>

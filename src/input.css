@@ -10,3 +10,12 @@
   }
   .project-card[hidden] { display: none !important; }
 }
+
+/* Accueil V4 : animations CSS légères, sans dépendance. */
+.hero-stage { --pointer-x: 60%; --pointer-y: 45%; }
+.hero-glow { position: absolute; inset: 0; pointer-events:none; background: radial-gradient(380px circle at var(--pointer-x) var(--pointer-y), rgba(87,68,200,.20), transparent 75%); opacity:.9; }
+@media (prefers-reduced-motion:no-preference) {
+  .hero-title { animation: hero-enter .85s cubic-bezier(.2,.8,.2,1) both; }
+  @keyframes hero-enter { from { opacity:0; transform:translateY(16px); } to { opacity:1; transform:translateY(0); } }
+}
+@media (prefers-reduced-motion: reduce) { .hero-glow { display:none; } }
