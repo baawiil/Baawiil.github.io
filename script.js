@@ -69,6 +69,30 @@ const skills = {
     ]
   }
 };
+// Niveaux indicatifs : ils décrivent l'usage, pas une certification ni une note.
+const skillDetails = {
+  'HTML': ['html5','Pratiqué'], 'CSS': ['css','Pratiqué'],
+  'JavaScript': ['javascript','Pratiqué'],
+  'Tailwind CSS': ['tailwindcss','Pratiqué'],
+  'Node.js (outillage)': ['nodedotjs','Exploré'],
+  'Bots Discord': ['discord','Pratiqué'],
+  'Communautés': ['discord','Pratiqué'],
+  'Automatisations': [null,'Pratiqué'],
+  'Expérience membre': [null,'Pratiqué'],
+  'discord.js': ['discord','Exploré'],
+  'discord.py': ['python','Exploré'],
+  'Adobe Premiere Pro': ['adobepremierepro','En apprentissage'],
+  'Adobe Photoshop': ['adobephotoshop','En apprentissage'],
+  'OBS Studio': ['obsstudio','Pratiqué'],
+  'Montage vidéo': [null,'Pratiqué'],
+  'Color Grading': [null,'Pratiqué'],
+  'Étalonnage': [null,'En apprentissage'],
+  'Formats verticaux': [null,'Pratiqué'],
+  'Visual Studio Code': ['visualstudiocode','Pratiqué'],
+  'Adobe Photoshop (formation)': ['adobephotoshop','En apprentissage'],
+  'GitHub': ['github','Pratiqué'], 'Git': ['git','Pratiqué'],
+  'Linux / Debian': ['debian','Pratiqué']
+};
 const tabs = [...document.querySelectorAll('.skill-tab')];
 function renderSkill(skill) {
   const target = document.querySelector('#skills-content');
@@ -82,20 +106,42 @@ function renderSkill(skill) {
   description.textContent = skill.desc;
   target.append(heading, description);
   skill.groups.forEach(group => {
-    const section = document.createElement('div');
-    section.className = 'mt-5';
+    const section = document.createElement('section');
+    section.className = 'mt-7';
     const label = document.createElement('h4');
     label.className = 'mb-3 text-sm font-bold text-slate-200';
-    label.textContent = group.label + ' :';
-    const tags = document.createElement('div');
-    tags.className = 'flex flex-wrap gap-2';
+    label.textContent = group.label;
+    const grid = document.createElement('div');
+    grid.className = 'skills-grid';
     group.items.forEach(item => {
-      const span = document.createElement('span');
-      span.className = 'rounded-lg border border-cyan-400/20 bg-cyan-400/10 px-3 py-2 text-sm text-cyan-200';
-      span.textContent = item;
-      tags.append(span);
+      const [logo, level] = skillDetails[item] || [null, 'Exploré'];
+      const card = document.createElement('div');
+      card.className = 'skill-card';
+      const head = document.createElement('div');
+      head.className = 'skill-card-head';
+      const emblem = document.createElement('span');
+      emblem.className = 'skill-emblem';
+      if (logo) {
+        const image = document.createElement('img');
+        image.src = 'https://cdn.simpleicons.org/' + logo + '/a5b4fc';
+        image.alt = '';
+        image.loading = 'lazy';
+        image.width = 26;
+        image.height = 26;
+        image.addEventListener('error', () => { emblem.textContent = '◆'; });
+        emblem.append(image);
+      } else emblem.textContent = '◆';
+      const name = document.createElement('span');
+      name.className = 'skill-name';
+      name.textContent = item;
+      head.append(emblem, name);
+      const status = document.createElement('span');
+      status.className = 'skill-level';
+      status.textContent = level;
+      card.append(head, status);
+      grid.append(card);
     });
-    section.append(label, tags);
+    section.append(label, grid);
     target.append(section);
   });
 }
