@@ -1,28 +1,29 @@
-# Baawiil — Portfolio Gaming & Tech (Tailwind CSS v4)
+# Baawiil — Portfolio Gaming & Tech V3
 
-Portfolio HTML + JavaScript, mis en forme en **Tailwind CSS v4**.
+Portfolio responsive en français avec Tailwind CSS v4 et GitHub Pages.
 
-## Déploiement GitHub Pages (automatique)
+## V3
+- Animations de révélation adaptées à `prefers-reduced-motion`
+- Cartes de projets filtrables (Discord, Web, Gaming) et statuts honnêtes
+- Présentation personnelle enrichie
+- Compétences interactives et navigables au clavier
+- Contact GitHub et copie du lien du site
+- Identité gaming conservée (cyan/violet, fenêtre de code, grille de fond)
 
-1. Importer tous les fichiers du ZIP **à la racine du dépôt** `baawiil/Baawiil.github.io`, en gardant le dossier caché `.github/workflows/pages.yml`.
-2. Remplacer `index.html` et `script.js` existants. On peut supprimer l'ancien `style.css` du dépôt : le nouveau est généré pendant le déploiement.
-3. GitHub → Settings → Pages → Build and deployment → Source : **GitHub Actions** (et non Deploy from a branch).
-4. GitHub → Actions → « Déployer le portfolio Tailwind » → vérifier le succès du déploiement.
-5. Le site sera sur https://baawiil.github.io/.
+## Publication
+1. Faire une sauvegarde de la V2 en téléchargeant le ZIP du dépôt depuis GitHub.
+2. Importer les fichiers de cette archive sur la branche `main` à la racine du dépôt, **en conservant le chemin `.github/workflows/pages.yml`**. Les fichiers `src/input.css`, `index.html`, `script.js`, `package.json` et `README.md` remplacent ceux de la V2.
+3. Dans GitHub → Settings → Pages, conserver **Source : GitHub Actions**.
+4. Dans Actions, vérifier l'exécution **Déployer le portfolio Tailwind**.
+5. Ouvrir https://baawiil.github.io/ et actualiser avec Ctrl+F5.
 
-### Développement local (optionnel)
+Ne pas recréer de workflow GitHub Pages ni publier le fichier source `input.css` directement. `style.css` en racine est un ancien fichier V1 : le workflow compile le nouveau CSS dans `dist/style.css`, il n'en a pas besoin.
 
-Installer Node.js, puis :
-
+## En local (Node.js installé)
 ```bash
 npm install
-npm run dev
+npm run build
 ```
+Ouvrir `dist/index.html` après copie des fichiers via le workflow ou utiliser un serveur local. Le fichier CSS est généré par Tailwind.
 
-Le fichier `style.css` sera généré localement. Ne pas utiliser le CDN Play Tailwind pour la production.
-
-### Personnalisation
-
-Modifier le texte, les sections et les classes Tailwind dans `index.html`. Le fichier source Tailwind est `src/input.css`. Les interactions sont dans `script.js`.
-
-Les projets sont indiqués comme « En conception », sans prétendre qu'ils sont déjà publiés.
+Les projets encore en conception n'ont volontairement pas de faux liens ou de fausses captures.
