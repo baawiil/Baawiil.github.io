@@ -35,16 +35,43 @@ function selectButton(buttons, selected) {
   });
 }
 const skills = {
-  web: { title: 'Développement web', desc: "Création d'interfaces web et découverte des frameworks et outils de développement.", tags: ['HTML', 'CSS', 'JavaScript', 'Tailwind CSS (framework CSS)', 'Node.js (outillage)'] },
-  discord: { title: 'Univers Discord', desc: 'Conception de communautés, de bots et de systèmes interactifs.', tags: ['Bots Discord', 'Communautés', 'Automatisations', 'Expérience membre'] },
-  video: { title: 'Montage vidéo & colorimétrie', desc: 'Montage de séquences, correction colorimétrique et création de contenus audiovisuels.', tags: ['Montage vidéo', 'Color Grading', 'Étalonnage', 'Formats verticaux', 'OBS Studio', 'Adobe Photoshop', 'Adobe Premiere Pro'] },
-  tools: { title: 'Outils & logiciels', desc: 'Logiciels et environnements utilisés ou explorés dans mes projets créatifs et techniques.', tags: ['Visual Studio Code', 'GitHub', 'Git', 'Linux / Debian', 'Adobe Photoshop (formation)', 'OBS Studio'] }
+  web: {
+    title: 'Développement web',
+    desc: "Création d'interfaces web et découverte des technologies de développement.",
+    groups: [
+      { label: 'Langages', items: ['HTML', 'CSS', 'JavaScript'] },
+      { label: 'Frameworks', items: ['Tailwind CSS'] },
+      { label: 'Outils', items: ['Node.js (outillage)'] }
+    ]
+  },
+  discord: {
+    title: 'Univers Discord',
+    desc: 'Conception de communautés, de bots et de systèmes interactifs.',
+    groups: [
+      { label: 'Compétences', items: ['Bots Discord', 'Communautés', 'Automatisations', 'Expérience membre'] }
+    ]
+  },
+  video: {
+    title: 'Montage vidéo & colorimétrie',
+    desc: 'Montage de séquences, correction colorimétrique et création de contenus audiovisuels.',
+    groups: [
+      { label: 'Logiciels', items: ['Adobe Premiere Pro', 'Adobe Photoshop', 'OBS Studio'] },
+      { label: 'Compétences', items: ['Montage vidéo', 'Color Grading', 'Étalonnage', 'Formats verticaux'] }
+    ]
+  },
+  tools: {
+    title: 'Outils & logiciels',
+    desc: 'Logiciels et environnements utilisés ou explorés dans mes projets créatifs et techniques.',
+    groups: [
+      { label: 'Logiciels', items: ['Visual Studio Code', 'Adobe Photoshop (formation)', 'OBS Studio'] },
+      { label: 'Plateformes & systèmes', items: ['GitHub', 'Git', 'Linux / Debian'] }
+    ]
+  }
 };
 const tabs = [...document.querySelectorAll('.skill-tab')];
-tabs.forEach(button => button.addEventListener('click', () => {
-  selectButton(tabs, button);
-  const skill = skills[button.dataset.skill];
+function renderSkill(skill) {
   const target = document.querySelector('#skills-content');
+  if (!target || !skill) return;
   target.replaceChildren();
   const heading = document.createElement('h3');
   heading.className = 'text-xl font-black text-white';
@@ -52,16 +79,30 @@ tabs.forEach(button => button.addEventListener('click', () => {
   const description = document.createElement('p');
   description.className = 'mt-3 leading-7 text-slate-400';
   description.textContent = skill.desc;
-  const tags = document.createElement('div');
-  tags.className = 'mt-5 flex flex-wrap gap-2';
-  skill.tags.forEach(label => {
-    const span = document.createElement('span');
-    span.className = 'rounded-lg border border-cyan-400/20 bg-cyan-400/10 px-3 py-2 text-sm text-cyan-200';
-    span.textContent = label;
-    tags.append(span);
+  target.append(heading, description);
+  skill.groups.forEach(group => {
+    const section = document.createElement('div');
+    section.className = 'mt-5';
+    const label = document.createElement('h4');
+    label.className = 'mb-3 text-sm font-bold text-slate-200';
+    label.textContent = group.label + ' :';
+    const tags = document.createElement('div');
+    tags.className = 'flex flex-wrap gap-2';
+    group.items.forEach(item => {
+      const span = document.createElement('span');
+      span.className = 'rounded-lg border border-cyan-400/20 bg-cyan-400/10 px-3 py-2 text-sm text-cyan-200';
+      span.textContent = item;
+      tags.append(span);
+    });
+    section.append(label, tags);
+    target.append(section);
   });
-  target.append(heading, description, tags);
+}
+tabs.forEach(button => button.addEventListener('click', () => {
+  selectButton(tabs, button);
+  renderSkill(skills[button.dataset.skill]);
 }));
+renderSkill(skills.web);
 document.querySelector('#copy-site')?.addEventListener('click', async () => {
   const output = document.querySelector('#copy-status');
   try {
