@@ -29,6 +29,7 @@ jobs:
         run: |
           npm run build
           cp index.html script.js robots.txt sitemap.xml dist/
+          cp -R media dist/
           touch dist/.nojekyll
       - name: Préparer GitHub Pages
         uses: actions/configure-pages@v5
