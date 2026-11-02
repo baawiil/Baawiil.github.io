@@ -122,3 +122,28 @@ if (heroStage && !reduceMotion && window.matchMedia('(pointer:fine)').matches) {
     heroStage.style.setProperty('--pointer-y', `${event.clientY - bounds.top}px`);
   }, { passive: true });
 }
+
+// Charger la vidéo uniquement à l'approche de la section Créations.
+const showcaseVideo = document.querySelector('[data-lazy-video]');
+if (showcaseVideo) {
+  const loadAndPlay = () => {
+    if (showcaseVideo.preload === 'none') {
+      showcaseVideo.preload = 'metadata';
+      showcaseVideo.load();
+    }
+    showcaseVideo.play().catch(() => {});
+  };
+  if ('IntersectionObserver' in window) {
+    const videoObserver = new IntersectionObserver(entries => {
+      for (const entry of entries) {
+        if (entry.isIntersecting) loadAndPlay();
+        else showcaseVideo.pause();
+      }
+    }, { rootMargin: '300px 0px', threshold: 0.01 });
+    videoObserver.observe(showcaseVideo);
+  } else loadAndPlay();
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) showcaseVideo.pause();
+    else if (showcaseVideo.getBoundingClientRect().top < window.innerHeight && showcaseVideo.getBoundingClientRect().bottom > 0) loadAndPlay();
+  });
+}
